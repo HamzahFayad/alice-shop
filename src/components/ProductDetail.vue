@@ -66,11 +66,15 @@
           <option value="gray">Gray</option>
         </select>
 
-        <br />
-        <ReviewsList :reviewObj="reviewObj" />
-        <Form />
+        <br /><br />
+        <button @click="addToCard">ADD to Card</button>
+        <br /><br />
+        <div class="reviews" v-if="this.reviewsList.length">
+          <p>Reviews</p>
+          <ReviewsList :reviews="reviewsList" />
+        </div>
+        <Form @add-review="reviewHandler" />
       </div>
-      <button @click="addToCard">ADD to Card</button>
     </section>
   </div>
 </template>
@@ -90,6 +94,7 @@ export default {
     return {
       productSize: null,
       productColor: null,
+      reviewsList: [],
     };
   },
 
@@ -99,6 +104,9 @@ export default {
     },
     addToCard() {
       alert(this.productSize + " " + this.productColor);
+    },
+    reviewHandler(reviewObject) {
+      this.reviewsList.push(reviewObject);
     },
   },
 };

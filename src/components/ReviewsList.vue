@@ -1,8 +1,9 @@
 <template>
   <div id="reviews-list">
     <ul>
-      <li v-for="(review, index) in reviewObj" :key="index">
-        {{ reviewObj }}
+      <li v-for="(review, index) in reviews" :key="index">
+        {{ reviews[index].inputName }} /// {{ reviews[index].inputReview }} ///
+        {{ reviews[index].inputStars }} stars
       </li>
     </ul>
   </div>
@@ -11,7 +12,7 @@
 <script>
 export default {
   name: "ReviewsList",
-  props: ["reviewObj"],
+  props: ["reviews"],
 };
 </script>
 
