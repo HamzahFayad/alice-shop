@@ -25,6 +25,7 @@
         <option value="4">4 stars</option>
         <option value="5">5 stars</option></select
       ><br />
+
       <input type="submit" />
     </form>
   </div>
@@ -37,11 +38,19 @@ export default {
     return {
       inputName: "",
       inputReview: "",
-      inputStars: "",
+      inputStars: null,
     };
   },
   methods: {
     addReview() {
+      if (
+        this.inputName === "" ||
+        this.inputReview === "" ||
+        this.inputStars === null
+      ) {
+        alert("Please fill out every field.");
+        return;
+      }
       let reviewObj = {
         inputName: this.inputName,
         inputReview: this.inputReview,
@@ -51,7 +60,7 @@ export default {
       this.$emit("add-review", reviewObj);
       this.inputName = "";
       this.inputReview = "";
-      this.inputStars = "";
+      this.inputStars = null;
     },
   },
 };

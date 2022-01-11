@@ -3,7 +3,6 @@
     <div class="back">
       <a class="btn product--link" @click="back">Back</a>
     </div>
-
     <section class="productDetails">
       <div class="productImages">
         <div
@@ -34,6 +33,8 @@
       </div>
 
       <div class="productInfos">
+        <Card @product-number="addToCard" :productNumber="productNumber" />
+        <br />
         <p>Article {{ productId }}</p>
         <h2>{{ productItem.name }}</h2>
         <p>{{ productItem.details }}</p>
@@ -50,25 +51,63 @@
           takimata sanctus est Lorem ipsum d
         </p>
         <br />
-        <select name="size" id="size" v-model="productSize">
-          <option value="">Size</option>
-          <option value="XS">XS</option>
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-        </select>
 
-        <select name="color" id="color" v-model="productColor">
-          <option value="">Color</option>
-          <option value="beige">Beige</option>
-          <option value="black">Black</option>
-          <option value="gray">Gray</option>
-        </select>
+        <h4>Size:</h4>
+        <div class="radioBtns">
+          <div>
+            <input type="radio" id="xs" value="xs" v-model="productSize" />
+            <label for="xs">XS</label>
+          </div>
+          <div>
+            <input type="radio" id="s" value="s" v-model="productSize" />
+            <label for="s">S</label>
+          </div>
+          <div>
+            <input type="radio" id="m" value="m" v-model="productSize" />
+            <label for="m">M</label>
+          </div>
+          <div>
+            <input type="radio" id="l" value="l" v-model="productSize" />
+            <label for="l">L</label>
+          </div>
+          <div>
+            <input type="radio" id="xl" value="xl" v-model="productSize" />
+            <label for="xl">XL</label>
+          </div>
+        </div>
 
-        <br /><br />
-        <button @click="addToCard">ADD to Card</button>
-        <br /><br />
+        <br />
+
+        <h4>Color:</h4>
+        <div class="radioBtns">
+          <div>
+            <input
+              type="radio"
+              id="beige"
+              value="beige"
+              v-model="productColor"
+            />
+            <label for="beige">Beige</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="black"
+              value="black"
+              v-model="productColor"
+            />
+            <label for="black">Black</label>
+          </div>
+          <div>
+            <input type="radio" id="gray" value="gray" v-model="productColor" />
+            <label for="gray">Gray</label>
+          </div>
+        </div>
+
+        <br />
+        <a class="btn product--link" @click="addToCard"> ADD to Card </a>
+
+        <br /><br /><br />
         <div class="reviews" v-if="this.reviewsList.length">
           <p>Reviews</p>
           <ReviewsList :reviews="reviewsList" />
@@ -82,6 +121,7 @@
 <script>
 import Form from "./Form.vue";
 import ReviewsList from "./ReviewsList.vue";
+import Card from "./Card.vue";
 
 export default {
   name: "ProductDetail",
@@ -89,12 +129,14 @@ export default {
   components: {
     Form,
     ReviewsList,
+    Card,
   },
   data() {
     return {
       productSize: null,
       productColor: null,
       reviewsList: [],
+      productNumber: 0,
     };
   },
 
@@ -103,7 +145,11 @@ export default {
       this.$router.push("/");
     },
     addToCard() {
-      alert(this.productSize + " " + this.productColor);
+      if (this.productSize == null || this.productColor == null) {
+        alert("Please choose size and color");
+        return;
+      }
+      this.productNumber++;
     },
     reviewHandler(reviewObject) {
       this.reviewsList.push(reviewObject);
@@ -138,6 +184,15 @@ export default {
     max-width: 600px;
     text-align: left;
     margin: 1% 4%;
+  }
+}
+
+.radioBtns {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 15px;
+  label {
+    padding: 0 5px;
   }
 }
 </style>
