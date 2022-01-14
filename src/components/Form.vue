@@ -67,4 +67,16 @@ export default {
 </script>
 
 <style lang="scss">
+form {
+  max-width: 400px;
+  padding: 20px 40px;
+  //margin: 0 auto;
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 6px 2px;
+    margin: 2% 0;
+  }
+}
 </style>

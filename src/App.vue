@@ -36,7 +36,7 @@ a {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #1c1c1c;
-  margin-top: 80px;
+  margin: 80px 0px;
   padding: 0 20px;
 }
 .btn {

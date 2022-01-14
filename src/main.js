@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import Home from "./components/Home";
 import ProductDetail from "./components/ProductDetail";
+import Order from "./components/Order";
 import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
@@ -18,6 +19,12 @@ const routes = [
     path: "/product/:productId",
     component: ProductDetail,
     name: "ProductDetail",
+    props: true,
+  },
+  {
+    path: "/product/:productId/order/:order",
+    component: Order,
+    name: "Order",
     props: true,
   },
 ];

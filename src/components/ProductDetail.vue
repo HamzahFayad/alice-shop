@@ -33,7 +33,26 @@
       </div>
 
       <div class="productInfos">
-        <Card @product-number="addToCard" :productNumber="productNumber" />
+        <router-link
+          :to="{
+            name: 'Order',
+            params: {
+              productItem: productItem,
+              productId: productId,
+              order: productId,
+            },
+          }"
+        >
+          <p class="product--link">
+            Card: <strong>{{ productNumber }}</strong>
+          </p>
+        </router-link>
+
+        <!--<Card
+          @product-number="addToCard"
+          :productItem="productItem"
+          :productNumber="productNumber"
+        />-->
         <br />
         <p>Article {{ productId }}</p>
         <h2>{{ productItem.name }}</h2>
@@ -108,13 +127,13 @@
         <a class="btn product--link" @click="addToCard"> ADD to Card </a>
 
         <br /><br /><br />
-        <div class="reviews" v-if="this.reviewsList.length">
-          <p>Reviews</p>
-          <ReviewsList :reviews="reviewsList" />
-        </div>
-        <Form @add-review="reviewHandler" />
       </div>
     </section>
+    <div class="reviews" v-if="this.reviewsList.length">
+      <h3 style="text-align: left">Reviews:</h3>
+      <ReviewsList :reviews="reviewsList" />
+    </div>
+    <Form @add-review="reviewHandler" />
   </div>
 </template>
 
@@ -194,5 +213,8 @@ export default {
   label {
     padding: 0 5px;
   }
+}
+.reviews {
+  padding: 20px 40px;
 }
 </style>

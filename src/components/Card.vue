@@ -1,9 +1,11 @@
 <template>
   <div id="card">
     <div class="card">
-      <p>
+      <a class="product--link">
         Card: <strong>{{ productNumber }}</strong>
-      </p>
+      </a>
+
+      <!--Card: <strong>{{ productNumber }}</strong>-->
     </div>
   </div>
 </template>
@@ -11,7 +13,7 @@
 <script>
 export default {
   name: "card",
-  props: ["productNumber"],
+  props: ["productNumber", "productItem"],
   methods: {
     addProduct() {
       this.$emit("product-number");
