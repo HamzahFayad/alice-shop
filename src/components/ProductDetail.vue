@@ -33,7 +33,7 @@
       </div>
 
       <div class="productInfos">
-        <router-link
+        <!--<router-link
           :to="{
             name: 'Order',
             params: {
@@ -42,11 +42,11 @@
               order: productId,
             },
           }"
-        >
-          <p class="product--link">
-            Card: <strong>{{ productNumber }}</strong>
-          </p>
-        </router-link>
+        >-->
+        <p class="product--link">
+          Card: <strong>{{ productNumber }}</strong>
+        </p>
+        <!--</router-link>-->
 
         <!--<Card
           @product-number="addToCard"
@@ -129,11 +129,12 @@
         <br /><br /><br />
       </div>
     </section>
+    <Form @add-review="reviewHandler" />
+
     <div class="reviews" v-if="this.reviewsList.length">
       <h3 style="text-align: left">Reviews:</h3>
       <ReviewsList :reviews="reviewsList" />
     </div>
-    <Form @add-review="reviewHandler" />
   </div>
 </template>
 

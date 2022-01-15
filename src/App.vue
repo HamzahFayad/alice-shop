@@ -1,6 +1,13 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <footer>
+      <h5>*Demo Site</h5>
+      <p style="text-align: center">
+        Project for testing purposes // Vue-Router, Components, props and emit
+      </p>
+      <p style="text-align: center">--- &copy; 2022 Hamzah ---</p>
+    </footer>
   </div>
 </template>
 
@@ -15,12 +22,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700&family=Montserrat:wght@400;500&display=swap");
 html,
 body,
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Assistant", sans-serif;
+  color: #1c1c1c;
+
   //font-size: 100%;
 }
 h1 {
@@ -36,7 +47,7 @@ a {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #1c1c1c;
-  margin: 80px 0px;
+  margin: 80px 0 40px 0px;
   padding: 0 20px;
 }
 .btn {
@@ -50,5 +61,8 @@ a {
     color: rgb(102, 0, 63);
     background: #fff;
   }
+}
+footer {
+  margin-top: 4%;
 }
 </style>

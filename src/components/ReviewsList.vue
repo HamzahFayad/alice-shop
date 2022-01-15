@@ -6,7 +6,23 @@
           <strong>User {{ index + 1 }}:</strong> {{ reviews[index].inputName }}
         </p>
         <p><strong>Review:</strong> {{ reviews[index].inputReview }}</p>
-        <p><strong>Stars:</strong> {{ reviews[index].inputStars }} stars</p>
+        <p v-if="reviews[index].inputStars == 1">
+          <strong>Stars:</strong> &#11088;
+        </p>
+        <p v-if="reviews[index].inputStars == 2">
+          <strong>Stars:</strong> &#11088; &#11088;
+        </p>
+        <p v-if="reviews[index].inputStars == 3">
+          <strong>Stars:</strong> &#11088; &#11088; &#11088;
+        </p>
+        <p v-if="reviews[index].inputStars == 4">
+          <strong>Stars:</strong>
+          &#11088; &#11088; &#11088; &#11088;
+        </p>
+        <p v-if="reviews[index].inputStars == 5">
+          <strong>Stars:</strong>
+          &#11088; &#11088; &#11088; &#11088; &#11088;
+        </p>
         <hr />
       </div>
     </section>
@@ -26,5 +42,8 @@ export default {
 }
 p {
   text-align: left;
+}
+hr {
+  margin: 1% 0;
 }
 </style>

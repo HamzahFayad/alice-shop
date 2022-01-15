@@ -4,20 +4,27 @@
     <br />
     <ul class="products">
       <div class="product" v-for="product in products" :key="product.id">
-        <div class="product--img">
-          <img :src="product.image" alt="" />
-        </div>
-        <h2 class="product--title">{{ product.name }}</h2>
-        <div class="product--infos">
-          <p class="product--price">{{ product.price }} $</p>
-          <router-link
-            :to="{
-              name: 'ProductDetail',
-              params: { productItem: product, productId: product.id },
-            }"
-            ><a class="btn product--link">Details</a></router-link
-          >
-        </div>
+        <router-link
+          :to="{
+            name: 'ProductDetail',
+            params: { productItem: product, productId: product.id },
+          }"
+        >
+          <div class="product--img">
+            <img :src="product.image" alt="" />
+          </div>
+          <h2 class="product--title">{{ product.name }}</h2>
+          <div class="product--infos">
+            <p class="product--price">{{ product.price }} $</p>
+            <router-link
+              :to="{
+                name: 'ProductDetail',
+                params: { productItem: product, productId: product.id },
+              }"
+              ><a class="btn product--link">Details</a></router-link
+            >
+          </div>
+        </router-link>
       </div>
     </ul>
   </div>
@@ -73,6 +80,7 @@ export default {
         width: 250px;
         height: 250px;
         margin: 4% auto;
+        overflow: hidden;
         @media only screen and (max-width: 700px) {
           width: 350px;
           height: 300px;
@@ -81,6 +89,7 @@ export default {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          transition: 250ms ease;
         }
       }
       .product--infos {
@@ -98,5 +107,8 @@ export default {
       }
     }
   }
+}
+.product:hover .product--img > img {
+  transform: scale(1.2);
 }
 </style>

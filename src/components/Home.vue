@@ -22,8 +22,8 @@ export default {
           name: "Casual Jacket",
           image: require("../assets/product1.jpg"),
           moreImages: [
-            require("../assets/product2.png"),
-            require("../assets/product4.jpg"),
+            require("../assets/product1.jpg"),
+            require("../assets/product1.jpg"),
           ],
           price: 10.99,
           details: "Lorem Ipsum",
@@ -33,8 +33,8 @@ export default {
           name: "Oversized Pullover",
           image: require("../assets/product2.png"),
           moreImages: [
-            require("../assets/product7.jpg"),
-            require("../assets/product4.jpg"),
+            require("../assets/product2.png"),
+            require("../assets/product2.png"),
           ],
           price: 8.99,
           details: "Lorem Ipsum",

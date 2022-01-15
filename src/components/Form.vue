@@ -1,5 +1,6 @@
 <template>
   <div id="form" @submit.prevent="addReview">
+    <h2>Please give us a review &#128522;</h2>
     <form>
       <input
         type="text"
@@ -17,8 +18,8 @@
         v-model="inputReview"
       ></textarea>
       <br />
+      <label style="text-align: left" for="">Stars:</label>
       <select name="stars" id="stars" v-model="inputStars">
-        <option value="">stars</option>
         <option value="1">1 star</option>
         <option value="2">2 stars</option>
         <option value="3">3 stars</option>
@@ -26,7 +27,7 @@
         <option value="5">5 stars</option></select
       ><br />
 
-      <input type="submit" />
+      <input id="submit" type="submit" value="Send Review" />
     </form>
   </div>
 </template>
@@ -68,15 +69,22 @@ export default {
 
 <style lang="scss">
 form {
-  max-width: 400px;
+  max-width: 600px;
   padding: 20px 40px;
-  //margin: 0 auto;
+  margin: 0 auto;
   input,
   select,
   textarea {
     width: 100%;
     padding: 6px 2px;
     margin: 2% 0;
+  }
+  #submit {
+    background: #66003f;
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    cursor: pointer;
   }
 }
 </style>
