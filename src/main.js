@@ -9,6 +9,7 @@ Vue.use(VueRouter);
 
 Vue.config.productionTip = false;
 
+//routes
 const routes = [
   {
     path: "/",
